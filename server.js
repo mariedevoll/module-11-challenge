@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true}));
 //routes
 app.get("api/notes", (req, res) => {
 
-})
+});
 
 //optimize
 app.listen(PORT, () => {
