@@ -6,10 +6,13 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
+const store = require("./db/store");
 //routes
 app.get("api/notes", (req, res) => {
-
-});
+    store.getNotes().then((notes) => {
+        return res.status(200).json(notes)
+    }).catch((error) => res.status(500).json(error))
+})
 
 //optimize
 app.listen(PORT, () => {
